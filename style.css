@@ -1,0 +1,114 @@
+/*
+
+Логика такая:
+1) все изображения содержатся в css-спрайте.
+2) Также там содержится белый прямоугольник, для того чтобы png-шные изображения не просвечивались.
+Для это используется multiple background.
+3) Все собрано в спрайте, т.к. без спрайта было бы так: если одно изображение не подгрузится,
+то текст будет перекрываться просто белым цветом. А со спрайтом такого не произойдет.
+4) для того, чтобы поместить изображение  поверх текста используется псевдоэлемент :after и абсолютное позиционирование
+
+*/
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    min-width: 825px;
+    list-style: none;
+    display: table;
+    width: 100%;
+}
+
+li{
+    float: left;
+    padding-top: 55px;
+    width: 125px;
+    height: 125px;
+    position: relative;
+    text-align: center;
+    font: 16px "Arial", sans-serif;
+}
+
+li+li{
+    margin-left: 15px;
+}
+
+.chrome{
+    color: #22a12a;
+}
+
+.chrome span{
+    color: #c90000;
+}
+
+.chrome span+span{
+    color: #f9d411;
+}
+
+.ff{
+    color: #f2a414;
+}
+
+.opera{
+    color: #c10e0e;
+}
+
+.safari{
+    color: #646464;
+}
+
+.yandex{
+    color: #000;
+}
+
+.yandex:first-letter{
+    color: #f00;
+}
+
+.ie{
+    color: #036da3;
+    float: right;
+    padding-top: 43px;
+}
+
+li:after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    left: 0;
+    top: 0;
+}
+
+.safari:after{
+    background: url('img/sprite.png') 0 -1109px no-repeat,
+    url('img/sprite.png') 0 0 no-repeat;
+
+}
+.ff:after{
+    background: url('img/sprite.png') 0 -445px no-repeat,
+    url('img/sprite.png') 0 0 no-repeat;
+}
+.ie:after{
+    background: url('img/sprite.png') 0 -668px no-repeat,
+    url('img/sprite.png') 0 0 no-repeat;
+}
+.yandex:after{
+    background: url('img/sprite.png') 0 -1333px no-repeat,
+    url('img/sprite.png') 0 0 no-repeat;
+}
+.chrome:after{
+    background: url('img/sprite.png') 0 -225px no-repeat,
+    url('img/sprite.png') 0 0 no-repeat;
+}
+.opera:after{
+    background: url('img/sprite.png') 0 -891px no-repeat,
+    url('img/sprite.png') 0 0 no-repeat;
+}
