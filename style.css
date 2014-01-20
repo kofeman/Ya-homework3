@@ -29,7 +29,7 @@ ul{
 li{
     float: left;
     width: 125px;
-    max-height: 125px;
+    height: 125px;
     font: 16px "Arial", sans-serif;
     text-align: center;
     overflow: hidden;
@@ -39,9 +39,18 @@ li+li{
     margin-left: 20px;
 }
 
+
 li figcaption{
-    margin-top: 60px;
-    display: block;
+    display: table;
+    height: 100%;
+}
+
+li figcaption .t-cell{
+    display: table-cell;
+    width: 125px;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .hidden{
@@ -53,17 +62,19 @@ li figcaption{
 
 figure{
     margin-top: -22px;
+    height: 100%;
 }
 
 .chrome{
     color: #22a12a;
 }
 
-.chrome span{
+.chrome i{
     color: #c90000;
+    font-style: normal;
 }
 
-.chrome span+span{
+.chrome i+i{
     color: #f9d411;
 }
 
@@ -83,7 +94,7 @@ figure{
     color: #000;
 }
 
-.yandex figcaption:first-letter{
+.yandex span:first-letter{
     color: #f00;
 }
 
@@ -92,8 +103,5 @@ figure{
     float: right;
 }
 
-.ie figcaption{
-    margin-top: 48px;
-}
 
 
